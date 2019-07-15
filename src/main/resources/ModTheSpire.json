@@ -1,0 +1,11 @@
+{
+  "modid": "quickrestart",
+  "name": "Quick Restart",
+  "author_list": ["erasels"],
+  "description": "${project.description}",
+  "version": "${project.version}",
+  "sts_version": "${SlayTheSpire.version}",
+  "mts_version": "${ModTheSpire.version}",
+  "dependencies": ["basemod"],
+  "update_json": ""
+}

@@ -1,0 +1,12 @@
+{
+  "quickRestart:SettingsRestartButton": {
+    "TEXT": [
+      "Start A New Run"
+    ]
+  },
+  "quickRestart:EndRestartButton": {
+    "TEXT": [
+      "New Run"
+    ]
+  }
+}
