@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e05946e-c141-4cff-bc5a-e10aa3dc3bf9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/quickRestart/helper/RestartRunHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ModTheSpire.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/quickRestartResources/localization/eng/UI-Strings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quickRestart/QuickRestart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quickRestart/QuickRestart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quickRestart/patches/ButtonOverride.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quickRestart/patches/ButtonOverride.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="48" lean-forward="true" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+            <state relative-caret-position="153">
+              <caret line="9" column="104" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="104" />
             </state>
           </provider>
         </entry>
@@ -41,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/QuickRestart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#935#936#0" expanded="true" />
@@ -59,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="345">
+              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="93" column="225" selection-start-line="93" selection-start-column="225" selection-end-line="93" selection-end-column="225" />
+            <state relative-caret-position="1552">
+              <caret line="100" column="5" lean-forward="true" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="18" selection-end-column="55" />
+            <state relative-caret-position="527">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="697">
+              <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1353#1354#0" expanded="true" />
@@ -141,8 +133,8 @@
       <find>440</find>
       <find>100</find>
       <find>coloredPowertips</find>
-      <find>this.</find>
       <find>SettingsButtonPatches.RestartButtonField</find>
+      <find>this.</find>
     </findStrings>
     <replaceStrings>
       <replace>W</replace>
@@ -160,13 +152,13 @@
         <option value="$PROJECT_DIR$/src/main/resources/ModTheSpire.json" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/quickRestart/patches/ButtonOverride.java" />
-        <option value="$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java" />
         <option value="$PROJECT_DIR$/src/main/java/quickRestart/QuickRestart.java" />
-        <option value="$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java" />
         <option value="$PROJECT_DIR$/src/main/java/quickRestart/helper/RestartRunHelper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/quickRestartResources/localization/eng/UI-Strings.json" />
-        <option value="$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java" />
         <option value="$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java" />
+        <option value="$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java" />
+        <option value="$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java" />
       </list>
     </option>
   </component>
@@ -304,15 +296,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563196633904</updated>
-      <workItem from="1563196635101" duration="12065000" />
+      <workItem from="1563196635101" duration="13785000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12065000" />
+    <option name="totallyTimeSpent" value="13785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1456" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -328,14 +321,14 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32931423" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32931423" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" visible="true" weight="0.083796665" />
+      <window_info active="true" anchor="right" id="Maven" visible="true" weight="0.083796665" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Database" />
@@ -359,13 +352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="48" lean-forward="true" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -410,28 +396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="18" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/helper/RestartRunHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -442,10 +406,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/patches/SettingsButtonPatches.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1552">
+          <caret line="100" column="5" lean-forward="true" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/ui/EndRestartButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        <state relative-caret-position="345">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/ui/SettingsRestartButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -454,8 +450,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/QuickRestart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#935#936#0" expanded="true" />
@@ -468,13 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/quickRestart/patches/ReturnToMenuButtonPatches.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="93" column="225" selection-start-line="93" selection-start-column="225" selection-end-line="93" selection-end-column="225" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="104" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="104" />
         </state>
       </provider>
     </entry>

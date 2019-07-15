@@ -5,9 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
-import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.rooms.VictoryRoom;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.screens.VictoryScreen;
 import com.megacrit.cardcrawl.ui.buttons.ReturnToMenuButton;
@@ -91,7 +89,7 @@ public class ReturnToMenuButtonPatches {
     public static class DynamicSliderVictory {
         @SpireInsertPatch(locator = Locator.class)
         public static void Insert(VictoryScreen __instance) {
-            EndRestartButtonField.restartField.get(__instance).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, ((float)ReflectionHacks.getPrivate(__instance, VictoryScreen.class, "statsTimer"))* 1.0F / 0.5F);
+            EndRestartButtonField.restartField.get(__instance.returnButton).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, ((float)ReflectionHacks.getPrivate(__instance, VictoryScreen.class, "statsTimer"))* 1.0F / 0.5F);
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -106,7 +104,7 @@ public class ReturnToMenuButtonPatches {
     public static class DynamicSliderDeath {
         @SpireInsertPatch(locator = Locator.class)
         public static void Insert(DeathScreen __instance) {
-            EndRestartButtonField.restartField.get(__instance).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, ((float)ReflectionHacks.getPrivate(__instance, DeathScreen.class, "statsTimer"))* 1.0F / 0.5F);
+            EndRestartButtonField.restartField.get(__instance.returnButton).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, ((float)ReflectionHacks.getPrivate(__instance, DeathScreen.class, "statsTimer"))* 1.0F / 0.5F);
         }
 
         private static class Locator extends SpireInsertLocator {

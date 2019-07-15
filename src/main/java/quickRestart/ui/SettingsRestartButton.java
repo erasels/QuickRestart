@@ -31,34 +31,38 @@ public class SettingsRestartButton {
     }
 
     public void update() {
-        hb.update();
-        if (hb.justHovered) {
-            CardCrawlGame.sound.play("UI_HOVER");
-        }
-        if ((InputHelper.justClickedLeft) && (hb.hovered)) {
-            CardCrawlGame.sound.play("UI_CLICK_1");
-            hb.clickStarted = true;
-        }
-        if ((hb.clicked) || (CInputActionSet.proceed.isJustPressed())) {
-            CInputActionSet.proceed.unpress();
-            hb.clicked = false;
-            RestartRunHelper.restartRun();
+        if(!Settings.isDailyRun) {
+            hb.update();
+            if (hb.justHovered) {
+                CardCrawlGame.sound.play("UI_HOVER");
+            }
+            if ((InputHelper.justClickedLeft) && (hb.hovered)) {
+                CardCrawlGame.sound.play("UI_CLICK_1");
+                hb.clickStarted = true;
+            }
+            if ((hb.clicked) || (CInputActionSet.proceed.isJustPressed())) {
+                CInputActionSet.proceed.unpress();
+                hb.clicked = false;
+                RestartRunHelper.restartRun();
+            }
         }
     }
 
     public void render(SpriteBatch sb) {
         //TODO: Better way
-        sb.setColor(Color.GREEN);
-        sb.draw(ImageMaster.OPTION_ABANDON, x - W / 2.0F, y - H / 2.0F, W / 2.0F, H / 2.0F, W, H, Settings.scale, Settings.scale, 0.0F, 0, 0, W, H, false, false);
-
-        FontHelper.renderFontCentered(sb, FontHelper.buttonLabelFont, TEXT[0], x + 15.0F * Settings.scale, y + 5.0F * Settings.scale, Settings.GOLD_COLOR);
-        if (hb.hovered) {
-            sb.setBlendFunction(770, 1);
-            sb.setColor(new Color(1.0F, 1.0F, 1.0F, 0.2F));
+        if(!Settings.isDailyRun) {
+            sb.setColor(Color.GREEN);
             sb.draw(ImageMaster.OPTION_ABANDON, x - W / 2.0F, y - H / 2.0F, W / 2.0F, H / 2.0F, W, H, Settings.scale, Settings.scale, 0.0F, 0, 0, W, H, false, false);
 
-            sb.setBlendFunction(770, 771);
+            FontHelper.renderFontCentered(sb, FontHelper.buttonLabelFont, TEXT[0], x + 15.0F * Settings.scale, y + 5.0F * Settings.scale, Settings.GOLD_COLOR);
+            if (hb.hovered) {
+                sb.setBlendFunction(770, 1);
+                sb.setColor(new Color(1.0F, 1.0F, 1.0F, 0.2F));
+                sb.draw(ImageMaster.OPTION_ABANDON, x - W / 2.0F, y - H / 2.0F, W / 2.0F, H / 2.0F, W, H, Settings.scale, Settings.scale, 0.0F, 0, 0, W, H, false, false);
+
+                sb.setBlendFunction(770, 771);
+            }
+            hb.render(sb);
         }
-        hb.render(sb);
     }
 }

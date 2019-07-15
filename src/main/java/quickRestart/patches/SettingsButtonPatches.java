@@ -5,7 +5,6 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.screens.options.AbandonRunButton;
 import com.megacrit.cardcrawl.screens.options.OptionsPanel;
-import com.megacrit.cardcrawl.screens.options.SettingsScreen;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import quickRestart.ui.SettingsRestartButton;

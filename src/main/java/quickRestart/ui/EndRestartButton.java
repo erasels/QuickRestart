@@ -47,14 +47,16 @@ public class EndRestartButton {
     }
 
     public void appear(float x, float y, String label) {
-        this.x = x+(BUTTON_W*1.25f);
-        this.y = y;
-        this.label = TEXT[0];
-        pressed = false;
-        isMoving = true;
-        show = true;
-        tint.changeColor(IDLE_COLOR, LERP_SPEED);
-        textTint.changeColor(TEXT_SHOW_COLOR, LERP_SPEED);
+        if(!Settings.isDailyRun) {
+            this.x = x + (BUTTON_W * 1.25f);
+            this.y = y;
+            this.label = TEXT[0];
+            pressed = false;
+            isMoving = true;
+            show = true;
+            tint.changeColor(IDLE_COLOR, LERP_SPEED);
+            textTint.changeColor(TEXT_SHOW_COLOR, LERP_SPEED);
+        }
     }
 
     public void hide() {
