@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.screens.VictoryScreen;
 import com.megacrit.cardcrawl.ui.buttons.ReturnToMenuButton;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import quickRestart.QuickRestart;
 import quickRestart.ui.EndRestartButton;
 
 import java.util.ArrayList;
@@ -40,7 +41,9 @@ public class ReturnToMenuButtonPatches {
     @SpirePatch(clz = ReturnToMenuButton.class, method = "appear")
     public static class AppearInjecter {
         public static void Postfix(ReturnToMenuButton __instance, float x, float y, String label) {
-            EndRestartButtonField.restartField.get(__instance).appear(x, y, label);
+            if(QuickRestart.isER()) {
+                EndRestartButtonField.restartField.get(__instance).appear(x, y, label);
+            }
         }
     }
 
@@ -56,7 +59,9 @@ public class ReturnToMenuButtonPatches {
     @SpirePatch(clz = ReturnToMenuButton.class, method = "update")
     public static class OptionsUpdateInjecter {
         public static void Postfix(ReturnToMenuButton __instance) {
-            EndRestartButtonField.restartField.get(__instance).update();
+            if(QuickRestart.isER()) {
+                EndRestartButtonField.restartField.get(__instance).update();
+            }
         }
     }
 
@@ -64,7 +69,9 @@ public class ReturnToMenuButtonPatches {
     @SpirePatch(clz = ReturnToMenuButton.class, method = "render")
     public static class OptionsRenderInjecter {
         public static void Postfix(ReturnToMenuButton __instance, SpriteBatch sb) {
-            EndRestartButtonField.restartField.get(__instance).render(sb);
+            if(QuickRestart.isER()) {
+                EndRestartButtonField.restartField.get(__instance).render(sb);
+            }
         }
     }
 

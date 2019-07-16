@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.screens.options.AbandonRunButton;
 import com.megacrit.cardcrawl.screens.options.OptionsPanel;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import quickRestart.QuickRestart;
 import quickRestart.ui.SettingsRestartButton;
 
 import java.util.ArrayList;
@@ -37,7 +38,9 @@ public class SettingsButtonPatches {
     public static class OptionsUpdateInjecter {
         @SpireInsertPatch(locator = Locator.class)
         public static void Insert(OptionsPanel __instance) {
-            RestartButtonField.restartField.get(__instance).update();
+            if(QuickRestart.isSR()) {
+                RestartButtonField.restartField.get(__instance).update();
+            }
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -53,7 +56,9 @@ public class SettingsButtonPatches {
     public static class OptionsRenderInjecter {
         @SpireInsertPatch(locator = Locator.class)
         public static void Insert(OptionsPanel __instance, SpriteBatch sb) {
-            RestartButtonField.restartField.get(__instance).render(sb);
+            if(QuickRestart.isSR()) {
+                RestartButtonField.restartField.get(__instance).render(sb);
+            }
         }
 
         private static class Locator extends SpireInsertLocator {

@@ -45,4 +45,12 @@ public class RestartRunHelper {
         AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
         restartRun();
     }
+
+    public static void restartRoom() {
+        CardCrawlGame.music.fadeAll();
+        AbstractDungeon.closeCurrentScreen();
+        AbstractDungeon.dungeonMapScreen.closeInstantly();
+        CardCrawlGame.loadingSave = true;
+        CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
+    }
 }
