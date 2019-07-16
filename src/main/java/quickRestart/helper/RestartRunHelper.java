@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.SeedHelper;
 import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.screens.DungeonTransitionScreen;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 
@@ -38,5 +39,10 @@ public class RestartRunHelper {
         AbstractDungeon.generateSeeds();
 
         CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
+    }
+
+    public static void scoreAndRestart() {
+        AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
+        restartRun();
     }
 }
