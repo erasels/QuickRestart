@@ -5,7 +5,9 @@ import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.PostRenderSubscriber;
 import basemod.interfaces.PostUpdateSubscriber;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,7 +26,7 @@ import java.util.Properties;
 public class QuickRestart implements
         PostInitializeSubscriber,
         EditStringsSubscriber,
-        PostUpdateSubscriber {
+        PostRenderSubscriber {
 
     private static SpireConfig modConfig = null;
     private static String modID;
@@ -141,7 +143,7 @@ public class QuickRestart implements
     }
 
     @Override
-    public void receivePostUpdate() {
+    public void receivePostRender(SpriteBatch spriteBatch) {
         if(RestartRunHelper.queuedScoreRestart) {
             runLogger.info("Scoring and run restart has been initialized. (Settings)");
             RestartRunHelper.scoreAndRestart();
