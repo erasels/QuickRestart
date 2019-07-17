@@ -126,7 +126,7 @@ public class QuickRestart implements
     @Override
     public void receiveEditStrings() {
         loadLocStrings("eng");
-        if(!languageSupport().equals("eng")) {
+        if (!languageSupport().equals("eng")) {
             loadLocStrings(languageSupport());
         }
     }
@@ -145,20 +145,19 @@ public class QuickRestart implements
 
     @Override
     public void receivePostRender(SpriteBatch spriteBatch) {
-        if(RestartRunHelper.queuedScoreRestart) {
+        if (RestartRunHelper.queuedScoreRestart) {
             runLogger.info("Scoring and run restart has been initialized. (Settings)");
             RestartRunHelper.scoreAndRestart();
-        } else if(RestartRunHelper.queuedRestart) {
+        } else if (RestartRunHelper.queuedRestart) {
             runLogger.info("Run restart has been initialized. (Death/Victory)");
             RestartRunHelper.restartRun();
-        } else if(RestartRunHelper.queuedRoomRestart) {
+        } else if (RestartRunHelper.queuedRoomRestart) {
             runLogger.info("Room restart has been initialized. (Settings)");
             RestartRunHelper.restartRoom();
         }
     }
 
-    private String languageSupport()
-    {
+    private String languageSupport() {
         switch (Settings.language) {
             case ZHS:
                 return "zhs";
@@ -168,6 +167,6 @@ public class QuickRestart implements
     }
 
     private void loadLocStrings(String language) {
-        BaseMod.loadCustomStringsFile(UIStrings.class, getModID() + "Resources/localization/"+language + "/UI-Strings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, getModID() + "Resources/localization/" + language + "/UI-Strings.json");
     }
 }
