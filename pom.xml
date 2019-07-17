@@ -6,7 +6,7 @@
     <groupId>quickRestart</groupId>
     <artifactId>quickRestart</artifactId>
     <name>Quick Restart</name>
-    <version>1.1.1</version>
+    <version>1.2.1</version>
     <description>Adds two buttons that allow you to quickly restart your game during and after your run.</description>
 
     <properties>

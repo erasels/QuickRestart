@@ -43,7 +43,7 @@ public class SettingsRestartButton {
             if ((hb.clicked) || (CInputActionSet.proceed.isJustPressed())) {
                 CInputActionSet.proceed.unpress();
                 hb.clicked = false;
-                RestartRunHelper.scoreAndRestart();
+                RestartRunHelper.queuedScoreRestart = true;
             }
         }
     }

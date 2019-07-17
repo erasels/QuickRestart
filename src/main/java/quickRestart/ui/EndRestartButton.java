@@ -73,7 +73,7 @@ public class EndRestartButton {
             if ((InputHelper.justClickedLeft) && (hb.hovered)) {
                 hb.clickStarted = true;
                 CardCrawlGame.sound.play("UI_CLICK_1");
-                RestartRunHelper.restartRun();
+                RestartRunHelper.queuedRestart = true;
             }
             if (hb.justHovered) {
                 CardCrawlGame.sound.play("UI_HOVER");

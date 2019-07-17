@@ -1,12 +1,11 @@
 package quickRestart;
 
 import basemod.BaseMod;
-import basemod.ModLabel;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
-import com.badlogic.gdx.graphics.Color;
+import basemod.interfaces.PostUpdateSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,6 +13,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import quickRestart.helper.RestartRunHelper;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -21,10 +23,12 @@ import java.util.Properties;
 @SpireInitializer
 public class QuickRestart implements
         PostInitializeSubscriber,
-        EditStringsSubscriber {
+        EditStringsSubscriber,
+        PostUpdateSubscriber {
 
     private static SpireConfig modConfig = null;
     private static String modID;
+    public static final Logger runLogger = LogManager.getLogger(QuickRestart.class.getName());
 
     public static void initialize() {
         BaseMod.subscribe(new QuickRestart());
@@ -64,7 +68,7 @@ public class QuickRestart implements
 
     @Override
     public void receivePostInitialize() {
-        System.out.println("Quick Restart is active.");
+        runLogger.info("Quick Restart is active.");
 
         UIStrings UIStrings = CardCrawlGame.languagePack.getUIString(QuickRestart.makeID("OptionsMenu"));
         String[] TEXT = UIStrings.TEXT;
@@ -134,5 +138,19 @@ public class QuickRestart implements
 
     public static String makeID(String idText) {
         return getModID() + ":" + idText;
+    }
+
+    @Override
+    public void receivePostUpdate() {
+        if(RestartRunHelper.queuedScoreRestart) {
+            runLogger.info("Scoring and run restart has been initialized. (Settings)");
+            RestartRunHelper.scoreAndRestart();
+        } else if(RestartRunHelper.queuedRestart) {
+            runLogger.info("Run restart has been initialized. (Death/Victory)");
+            RestartRunHelper.restartRun();
+        } else if(RestartRunHelper.queuedRoomRestart) {
+            runLogger.info("Room restart has been initialized. (Settings)");
+            RestartRunHelper.restartRoom();
+        }
     }
 }
