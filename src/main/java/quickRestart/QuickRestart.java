@@ -6,7 +6,6 @@ import basemod.ModPanel;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.PostRenderSubscriber;
-import basemod.interfaces.PostUpdateSubscriber;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -126,8 +125,10 @@ public class QuickRestart implements
 
     @Override
     public void receiveEditStrings() {
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/eng/UI-Strings.json");
+        loadLocStrings("eng");
+        if(!languageSupport().equals("eng")) {
+            loadLocStrings(languageSupport());
+        }
     }
 
     public static String getModID() {
@@ -154,5 +155,19 @@ public class QuickRestart implements
             runLogger.info("Room restart has been initialized. (Settings)");
             RestartRunHelper.restartRoom();
         }
+    }
+
+    private String languageSupport()
+    {
+        switch (Settings.language) {
+            case ZHS:
+                return "zhs";
+            default:
+                return "eng";
+        }
+    }
+
+    private void loadLocStrings(String language) {
+        BaseMod.loadCustomStringsFile(UIStrings.class, getModID() + "Resources/localization/"+language + "/UI-Strings.json");
     }
 }
