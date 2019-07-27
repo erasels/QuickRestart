@@ -4,7 +4,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.SeedHelper;
+import com.megacrit.cardcrawl.helpers.TipTracker;
+import com.megacrit.cardcrawl.metrics.MetricData;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.screens.DungeonTransitionScreen;
@@ -30,6 +33,11 @@ public class RestartRunHelper {
         Settings.hasRubyKey = false;
         Settings.hasSapphireKey = false;
         ShopScreen.resetPurgeCost();
+        CardCrawlGame.tips.initialize();
+        CardCrawlGame.metricData.clearData();
+        CardHelper.clear();
+        TipTracker.refresh();
+        System.gc();
         QuickRestart.runLogger.info("Dungeon has been reset.");
 
         if (CardCrawlGame.chosenCharacter == null) {
