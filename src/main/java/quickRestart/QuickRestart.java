@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import quickRestart.helper.RestartRunHelper;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 
 @SpireInitializer
@@ -158,12 +159,17 @@ public class QuickRestart implements
     }
 
     private String languageSupport() {
-        switch (Settings.language) {
-            case ZHS:
-                return "zhs";
-            default:
-                return "eng";
-        }
+		String language = Settings.language.name().toLowerCase();
+		String urlPath = getModID() + "Resources/localization/" + language + "/UI-Strings.json";
+		ClassLoader classLoader = UIStrings.class.getClassLoader();
+		URL url = classLoader.getResource(urlPath);
+
+		if (url != null) {
+			return language;
+		} else {
+			return "eng";
+		}
+		
     }
 
     private void loadLocStrings(String language) {
