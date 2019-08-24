@@ -71,6 +71,7 @@ public class RestartRunHelper {
         CardCrawlGame.music.fadeAll();
         AbstractDungeon.closeCurrentScreen();
         AbstractDungeon.dungeonMapScreen.closeInstantly();
+        AbstractDungeon.reset();
         CardCrawlGame.loadingSave = true;
         CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
         QuickRestart.runLogger.info("Room has been reset.");

@@ -4,11 +4,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.vfx.TintEffect;
 import quickRestart.QuickRestart;
 import quickRestart.helper.RestartRunHelper;
@@ -45,7 +47,8 @@ public class EndRestartButton {
     }
 
     public void appear(float x, float y, String label) {
-        if(!Settings.isDailyRun) {
+        //Pale of the ancients compatability
+        if(!Settings.isDailyRun && !AbstractDungeon.getCurrRoom().getClass().getName().equals("paleoftheancients.rooms.DejaVuRoom")) {
             this.x = x + (BUTTON_W * 1.25f);
             this.y = y;
             this.label = TEXT[0];
