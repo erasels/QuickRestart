@@ -95,8 +95,8 @@ public class ReturnToMenuButtonPatches {
     @SpirePatch(clz = VictoryScreen.class, method = "updateStatsScreen")
     public static class DynamicSliderVictory {
         @SpireInsertPatch(locator = Locator.class)
-        public static void Insert(VictoryScreen __instance) {
-            EndRestartButtonField.restartField.get(__instance.returnButton).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, ((float)ReflectionHacks.getPrivate(__instance, VictoryScreen.class, "statsTimer"))* 1.0F / 0.5F);
+        public static void Insert(VictoryScreen __instance, ReturnToMenuButton ___returnButton, float ___statsTimer) {
+            EndRestartButtonField.restartField.get(___returnButton).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, (___statsTimer)* 1.0F / 0.5F);
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -110,8 +110,8 @@ public class ReturnToMenuButtonPatches {
     @SpirePatch(clz = DeathScreen.class, method = "updateStatsScreen")
     public static class DynamicSliderDeath {
         @SpireInsertPatch(locator = Locator.class)
-        public static void Insert(DeathScreen __instance) {
-            EndRestartButtonField.restartField.get(__instance.returnButton).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, ((float)ReflectionHacks.getPrivate(__instance, DeathScreen.class, "statsTimer"))* 1.0F / 0.5F);
+        public static void Insert(DeathScreen __instance, ReturnToMenuButton ___returnButton, float ___statsTimer) {
+            EndRestartButtonField.restartField.get(___returnButton).y = Interpolation.pow3In.apply(Settings.HEIGHT * 0.1F, Settings.HEIGHT * 0.15F, (___statsTimer)* 1.0F / 0.5F);
         }
 
         private static class Locator extends SpireInsertLocator {
