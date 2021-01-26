@@ -22,6 +22,8 @@ public class RestartRunHelper {
     public static void restartRun() {
         queuedRestart = false;
         CardCrawlGame.music.fadeAll();
+        if (Settings.AMBIANCE_ON)
+            CardCrawlGame.sound.stop("WIND");
         AbstractDungeon.getCurrRoom().clearEvent();
         AbstractDungeon.closeCurrentScreen();
         //AbstractDungeon.dungeonMapScreen.closeInstantly();
