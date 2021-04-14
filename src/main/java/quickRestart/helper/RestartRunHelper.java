@@ -20,12 +20,15 @@ public class RestartRunHelper {
     public static boolean queuedRoomRestart;
 
     public static void restartRun() {
-        queuedRestart = false;
         CardCrawlGame.music.fadeAll();
         if (Settings.AMBIANCE_ON)
             CardCrawlGame.sound.stop("WIND");
         AbstractDungeon.getCurrRoom().clearEvent();
-        AbstractDungeon.closeCurrentScreen();
+
+        //Safety check to not call this method when the player restarts from the death/victory screen. This may cause crashes otherwise
+        if(!queuedRestart) {
+            AbstractDungeon.closeCurrentScreen();
+        }
         //AbstractDungeon.dungeonMapScreen.closeInstantly();
         CardCrawlGame.dungeonTransitionScreen = new DungeonTransitionScreen(Exordium.ID);
         //AbstractDungeon.rs = AbstractDungeon.RenderScene.NORMAL;
@@ -59,17 +62,17 @@ public class RestartRunHelper {
 
         CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
         QuickRestart.runLogger.info("Run has been reset.");
+        queuedRestart = false;
     }
 
     public static void scoreAndRestart() {
-        queuedScoreRestart = false;
         AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
         QuickRestart.runLogger.info("Run has been scored.");
         restartRun();
+        queuedScoreRestart = false;
     }
 
     public static void restartRoom() {
-        queuedRoomRestart = false;
         CardCrawlGame.music.fadeAll();
         AbstractDungeon.closeCurrentScreen();
         AbstractDungeon.dungeonMapScreen.closeInstantly();
@@ -77,5 +80,6 @@ public class RestartRunHelper {
         CardCrawlGame.loadingSave = true;
         CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
         QuickRestart.runLogger.info("Room has been reset.");
+        queuedRoomRestart = false;
     }
 }
