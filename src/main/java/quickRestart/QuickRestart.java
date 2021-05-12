@@ -6,6 +6,7 @@ import basemod.ModPanel;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.PostRenderSubscriber;
+import basemod.interfaces.StartGameSubscriber;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import quickRestart.helper.RestartRunHelper;
+import quickRestart.patches.FixAscenscionUnlockOnGameoverWinPatch;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +28,8 @@ import java.util.Properties;
 public class QuickRestart implements
         PostInitializeSubscriber,
         EditStringsSubscriber,
-        PostRenderSubscriber {
+        PostRenderSubscriber,
+        StartGameSubscriber {
 
     private static SpireConfig modConfig = null;
     private static String modID;
@@ -174,5 +177,10 @@ public class QuickRestart implements
 
     private void loadLocStrings(String language) {
         BaseMod.loadCustomStringsFile(UIStrings.class, getModID() + "Resources/localization/" + language + "/UI-Strings.json");
+    }
+
+    @Override
+    public void receiveStartGame() {
+        FixAscenscionUnlockOnGameoverWinPatch.updateAscProgress = true;
     }
 }

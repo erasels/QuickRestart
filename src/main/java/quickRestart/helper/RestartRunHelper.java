@@ -1,5 +1,6 @@
 package quickRestart.helper;
 
+import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.screens.DungeonTransitionScreen;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 import quickRestart.QuickRestart;
+import quickRestart.patches.FixAscenscionUnlockOnGameoverWinPatch;
 
 public class RestartRunHelper {
     public static boolean queuedRestart;
@@ -24,6 +26,13 @@ public class RestartRunHelper {
         if (Settings.AMBIANCE_ON)
             CardCrawlGame.sound.stop("WIND");
         AbstractDungeon.getCurrRoom().clearEvent();
+
+        //Fix Ascenscion unlock problem if beating third boss and not doing heart
+        if(FixAscenscionUnlockOnGameoverWinPatch.updateAscProgress) {
+            if(AbstractDungeon.screen == AbstractDungeon.CurrentScreen.DEATH) {
+                ReflectionHacks.privateMethod(DeathScreen.class, "updateAscensionProgress").invoke(AbstractDungeon.deathScreen);
+            }
+        }
 
         //Safety check to not call this method when the player restarts from the death/victory screen. This may cause crashes otherwise
         if(!queuedRestart) {
