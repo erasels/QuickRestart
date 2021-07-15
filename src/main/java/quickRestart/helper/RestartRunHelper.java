@@ -22,9 +22,8 @@ public class RestartRunHelper {
     public static boolean queuedRoomRestart;
 
     public static void restartRun() {
-        CardCrawlGame.music.fadeAll();
-        if (Settings.AMBIANCE_ON)
-            CardCrawlGame.sound.stop("WIND");
+        //Stop all lingering sounds from playing
+        stopLingeringSounds();
         AbstractDungeon.getCurrRoom().clearEvent();
 
         //Fix Ascenscion unlock problem if beating third boss and not doing heart
@@ -82,7 +81,7 @@ public class RestartRunHelper {
     }
 
     public static void restartRoom() {
-        CardCrawlGame.music.fadeAll();
+        stopLingeringSounds();
         AbstractDungeon.closeCurrentScreen();
         AbstractDungeon.dungeonMapScreen.closeInstantly();
         AbstractDungeon.reset();
@@ -90,5 +89,15 @@ public class RestartRunHelper {
         CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
         QuickRestart.runLogger.info("Room has been reset.");
         queuedRoomRestart = false;
+    }
+
+    public static void stopLingeringSounds() {
+        CardCrawlGame.music.fadeAll();
+        if (Settings.AMBIANCE_ON)
+            CardCrawlGame.sound.stop("WIND");
+
+        if(AbstractDungeon.scene != null) {
+            AbstractDungeon.scene.fadeOutAmbiance();
+        }
     }
 }
