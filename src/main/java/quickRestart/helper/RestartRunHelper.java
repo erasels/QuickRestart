@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.SeedHelper;
 import com.megacrit.cardcrawl.helpers.TipTracker;
-import com.megacrit.cardcrawl.metrics.MetricData;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.screens.DungeonTransitionScreen;
@@ -16,17 +15,24 @@ import com.megacrit.cardcrawl.shop.ShopScreen;
 import quickRestart.QuickRestart;
 import quickRestart.patches.FixAscenscionUnlockOnGameoverWinPatch;
 
+import java.lang.reflect.Field;
+
+import static quickRestart.QuickRestart.hasDownfall;
+
 public class RestartRunHelper {
     public static boolean queuedRestart;
     public static boolean queuedScoreRestart;
     public static boolean queuedRoomRestart;
+
+    //Set in receiveStartGame in the main mod file, checks for downfall
+    public static boolean evilMode = false;
 
     public static void restartRun() {
         //Stop all lingering sounds from playing
         stopLingeringSounds();
         AbstractDungeon.getCurrRoom().clearEvent();
 
-        //Fix Ascenscion unlock problem if beating third boss and not doing heart
+        //Fix Ascension unlock problem if beating third boss and not doing heart
         if(FixAscenscionUnlockOnGameoverWinPatch.updateAscProgress) {
             if(AbstractDungeon.screen == AbstractDungeon.CurrentScreen.DEATH) {
                 ReflectionHacks.privateMethod(DeathScreen.class, "updateAscensionProgress").invoke(AbstractDungeon.deathScreen);
@@ -53,6 +59,10 @@ public class RestartRunHelper {
         System.gc();
         QuickRestart.runLogger.info("Dungeon has been reset.");
 
+        if(evilMode) {
+            setDownfallMode();
+        }
+
         if (CardCrawlGame.chosenCharacter == null) {
             CardCrawlGame.chosenCharacter = AbstractDungeon.player.chosenClass;
         }
@@ -71,6 +81,7 @@ public class RestartRunHelper {
         CardCrawlGame.mode = CardCrawlGame.GameMode.CHAR_SELECT;
         QuickRestart.runLogger.info("Run has been reset.");
         queuedRestart = false;
+        evilMode = false;
     }
 
     public static void scoreAndRestart() {
@@ -98,6 +109,42 @@ public class RestartRunHelper {
 
         if(AbstractDungeon.scene != null) {
             AbstractDungeon.scene.fadeOutAmbiance();
+        }
+    }
+
+    // Downfall compat
+    private static Field evilField = null;
+    public static boolean isDownfallMode() {
+        if(evilField == null) {
+            try {
+                Class<?> clz = Class.forName("downfall.patches.EvilModeCharacterSelect");
+                evilField = clz.getField("evilMode");
+            } catch (ClassNotFoundException | NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            return evilField.getBoolean(null);
+        } catch (IllegalAccessException e) {
+            return false;
+        }
+    }
+
+    public static void setDownfallMode() {
+        if(evilField == null) {
+            try {
+                Class<?> clz = Class.forName("downfall.patches.EvilModeCharacterSelect");
+                evilField = clz.getField("evilMode");
+            } catch (ClassNotFoundException | NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            evilField.set(null, true);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
     }
 }

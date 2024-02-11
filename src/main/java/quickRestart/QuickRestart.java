@@ -8,6 +8,7 @@ import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.PostRenderSubscriber;
 import basemod.interfaces.StartGameSubscriber;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,6 +25,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 
+import static quickRestart.helper.RestartRunHelper.evilMode;
+import static quickRestart.helper.RestartRunHelper.isDownfallMode;
+
 @SpireInitializer
 public class QuickRestart implements
         PostInitializeSubscriber,
@@ -34,6 +38,11 @@ public class QuickRestart implements
     private static SpireConfig modConfig = null;
     private static String modID;
     public static final Logger runLogger = LogManager.getLogger(QuickRestart.class.getName());
+
+    public static final boolean hasDownfall;
+    static {
+        hasDownfall = Loader.isModLoaded("downfall");
+    }
 
     public static void initialize() {
         BaseMod.subscribe(new QuickRestart());
@@ -182,5 +191,8 @@ public class QuickRestart implements
     @Override
     public void receiveStartGame() {
         FixAscenscionUnlockOnGameoverWinPatch.updateAscProgress = true;
+        if(hasDownfall) {
+            evilMode = isDownfallMode();
+        }
     }
 }
